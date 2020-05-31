@@ -5,6 +5,10 @@ os: linux
 services:
   -  docker
 
+cache: 
+  directories:
+    - dist
+
 before_script:
   - npm install -g sass
 
