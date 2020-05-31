@@ -25,7 +25,6 @@ jobs:
     - stage: build
       name: "Copy files"
       script: 
-        - mkdir ./dist
         - mkdir ./dist/assets
         - cp ./Code/*.html ./dist
         - cp -r ./Code/assets/* ./dist/assets/*
