@@ -1,0 +1,36 @@
+language: node_js
+node_js: node
+dist: xenial
+os: linux
+services:
+  -  docker
+
+before_script:
+  - npm install -g sass
+
+stages:
+  - build
+  - deploy
+
+jobs: 
+  include:
+    - stage: build
+      name: "Compile SASS"
+      script: sass ./Code/:./dist
+
+    - stage: build
+      name: "Copy files"
+      script: 
+        - mkdir ./dist
+        - cp ./Code/*.html ./dist
+        - cp ./Code/assets ./dist/assets
+
+    - stage: build
+      name: "Build docker image"
+      script: docker build -t appdustry/website .
+
+    - stage: deploy
+      name: "Push docker image"
+      script: 
+        - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+        - docker push appdustry/website
