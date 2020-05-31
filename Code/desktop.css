@@ -1,0 +1,177 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap");
+body {
+  font-family: 'Montserrat', sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+div.desktop-wrapper div.nav-bar {
+  width: calc(100% - 25px);
+  height: 120px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding-left: 25px;
+}
+
+div.desktop-wrapper div.nav-bar div.logo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+div.desktop-wrapper div.nav-bar div.logo span {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 36px;
+  line-height: 44px;
+  letter-spacing: 0.2em;
+  margin-left: 25px;
+}
+
+div.desktop-wrapper div.nav-bar div.nav-items {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  margin-left: 5%;
+}
+
+div.desktop-wrapper div.nav-bar div.nav-items a {
+  font-size: 28px;
+  color: #828282;
+  text-decoration: none;
+  -webkit-transition: all 200ms ease-in-out;
+  transition: all 200ms ease-in-out;
+}
+
+div.desktop-wrapper div.nav-bar div.nav-items a:hover {
+  color: #000000;
+}
+
+div.desktop-wrapper div.landing-image {
+  background: url("assets/desktop/landing-image-desktop.png");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: calc(90vh - 120px);
+  position: relative;
+}
+
+div.desktop-wrapper div.landing-image img {
+  width: 100%;
+  position: absolute;
+  bottom: -1px;
+}
+
+div.desktop-wrapper div#about {
+  height: 500px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 100%;
+}
+
+div.desktop-wrapper div#about span {
+  font-weight: 500;
+  font-size: 72px;
+  letter-spacing: 0.09em;
+  color: #828282;
+  -webkit-transform: rotate(-90deg);
+          transform: rotate(-90deg);
+  padding: 0;
+  margin-left: -80px;
+}
+
+div.desktop-wrapper div#about div.about-text {
+  width: 60%;
+  font-size: 24px;
+  line-height: 36px;
+}
+
+div.desktop-wrapper div#about div.about-image {
+  margin-right: 20px;
+}
+
+div.desktop-wrapper div#projects {
+  background: url("assets/desktop/landing-image-desktop.png");
+  height: 85vh;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  -webkit-transform: scale(-1);
+          transform: scale(-1);
+  position: relative;
+}
+
+div.desktop-wrapper div#projects span {
+  position: absolute;
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
+  font-weight: 500;
+  font-size: 96px;
+  letter-spacing: 0.19em;
+  color: #FFFFFF;
+  right: -220px;
+  bottom: 40%;
+}
+
+div.desktop-wrapper div#projects img {
+  position: absolute;
+  width: 100%;
+  left: 0px;
+  -webkit-transform: scale(-1);
+          transform: scale(-1);
+}
+
+div.desktop-wrapper div#projects img#skew2 {
+  bottom: -2px;
+}
+
+div.desktop-wrapper div#projects img#skew3 {
+  top: -2px;
+}
+/*# sourceMappingURL=desktop.css.map */
