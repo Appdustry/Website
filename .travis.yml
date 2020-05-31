@@ -28,12 +28,11 @@ jobs:
         - cp ./Code/*.html ./dist
         - cp -r ./Code/assets/* ./dist/assets/*
 
-    - stage: build
-      name: "Build docker image"
-      script: docker build -t appdustry/website .
-
     - stage: deploy
-      name: "Push docker image"
+      name: "Build and Push Docker image"
       script: 
+        - echo Building image
+        - docker build -t appdustry/website .
+        - echo Pushing image
         - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
         - docker push appdustry/website
