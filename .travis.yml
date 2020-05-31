@@ -3,36 +3,34 @@ node_js: node
 dist: xenial
 os: linux
 services:
-  -  docker
-
-cache: 
+- docker
+cache:
   directories:
-    - dist
-
+  - dist
 before_script:
-  - npm install -g sass
-
+- npm install -g sass
 stages:
-  - build
-  - deploy
-
-jobs: 
+- build
+- deploy
+jobs:
   include:
-    - stage: build
-      name: "Compile SASS"
-      script: sass ./Code/:./dist
-
-    - stage: build
-      name: "Copy files"
-      script: 
-        - cp ./Code/*.html ./dist
-        - cp -r ./Code/assets/* ./dist/assets/*
-
-    - stage: deploy
-      name: "Build and Push Docker image"
-      script: 
-        - echo Building image
-        - docker build -t appdustry/website .
-        - echo Pushing image
-        - echo "$DOCKER_PASSWORD" | docker login --username "$DOCKER_USERNAME" --password-stdin
-        - docker push appdustry/website
+  - stage: build
+    name: Compile SASS
+    script: sass ./Code/:./dist
+  - stage: build
+    name: Copy files
+    script:
+    - cp ./Code/*.html ./dist
+    - cp -r ./Code/assets/* ./dist/assets/*
+  - stage: deploy
+    name: Build and Push Docker image
+    script:
+    - echo Building image
+    - docker build -t appdustry/website .
+    - echo Pushing image
+    - echo "$DOCKER_PASSWORD" | docker login --username "$DOCKER_USERNAME" --password-stdin
+    - docker push appdustry/website
+env:
+  global:
+  - secure: uStUbYc+fHRZEn+8nzW03H3Ece9HCdBFdK7mHZqAAq8WHMtLq3fOn9aq5cDrDvNSMyM6tSDwtMv34VI6y0kQf64sy0n+v8sgDGljC7wlP0C1ku8gaAErerJ8m9bRWQu9zW5S/Gh+Q65GX+hf4vBlDDSRwNIzTd/nyb7eHO3dyjE0XDCHIW6qF0+HmcKYnk161ujTLSfNhenOzW+0Ouczedjyi79dhJcjLQAFAe7sP4VCHagAOORJ2px+tnDrCDYbSkFEaPVvbzoySN1COJQMn3fZeJ4Ugmz3Uqn61DlEEvLyVg0xuW3/TzBcbAOk+wMkb/tEnpos6GA1g083lgP4URv3qwGIj0yOPSkNH6daFVZdavVeGROZb015UschGvVwxVDNutIqga4u+CXfKLQB4DQKiQZLh39i1m6GiTsIKaD6RohFYhIb8BCXCBDyUM6jCdBmEqCBSlQSt1AIirxnkVLJfbhHCQHAgPr3AfAc2Yt+pcR4ZBvNPWXlq1dOBqOT1Y43z62Z5B9soRuDoek+z8I7ksAc+F4J/3ripzlcddLbuFrETTL8tB6D6GwtYPAd1biaTWBxSKbrOLwRCz0yCDJcKiIvIJ+8bOL7jMXEgKvmWIW6C02eCY1VYfUWOldgVDGX2613qQBLd7v5Yj/uGwwXCNSg3qM6qquFWLl8vaY=
+  - secure: MXTRojNpkzQFRXgTlXql4L9rAdRCq761qk8dgRXbyRmBP4USaEm2CycZHR50K56tGkY+gRxrH644/jZw0bREceSkX2Mn9pNnFDhQGQlFpRq7XNx8W8pVrWbufBJx52IrUyvIpZiF8E7JQVKmx8ssrmjr+29q3FRQEeucbw0WzXaL/AQ2joKXrQs6hLaewk2gMkRqMu/F3liNYc50jjrQF5kLHDQrR/8No+wSxqhFw7vdUdViP6mpKA0pp8mDVKVOPirei+XtdyNVIQYxckfgQNfM9+XwHeeX8Fh1OXpvjTf0wYfSHUEXnOzqiop+ElUxWYvlRNSm2h4lJ+MmsmcLbB3IV89koZHJFFE7kfLOtwMFa9Sd3nUyUfeeVOZRSHcEF6ncwHfA2LLyHrmwSR8fnjUc+E5li6ESYtijmSMdoVMav5TLkzli+R6KZA74Hdb/Rnp9bhxewwyj92JTEvWeSbT0qVhbHTpcl4fi4Cff74n76j53kKhyhxAH6i02nAT7qlbloDJ2mKvYie/CR4gx/f3/KSB8S6Cj05Crwus5Z7DtzuNBkdSC4POw+We5pFoGlDPWoC089F2MZkqElvuvVWV3hrPB3J6TFmKM0b3KLOycLaGv3dKtxxxD8AFJPymYry9Udah3nebN433YAyaydXvfigVJqTuoMDTRacc3y6M=
