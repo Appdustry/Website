@@ -23,7 +23,7 @@ jobs:
       script: 
         - mkdir ./dist
         - cp ./Code/*.html ./dist
-        - cp ./Code/assets ./dist/assets
+        - cp -r ./Code/assets/* ./dist/assets/*
 
     - stage: build
       name: "Build docker image"
